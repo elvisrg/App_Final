@@ -17,6 +17,7 @@
         android:textColorHint="#CCC8C8"
         android:textSize="24sp" />
 
+
     <EditText
         android:id="@+id/txtTelefono"
         android:layout_width="match_parent"
