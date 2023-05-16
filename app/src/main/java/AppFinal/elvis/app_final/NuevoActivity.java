@@ -9,12 +9,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import AppFinal.elvis.app_final.adaptadores.ListaContactosAdapter;
 import AppFinal.elvis.app_final.db.DbContactos;
 
 public class NuevoActivity extends AppCompatActivity {
 
     EditText txtNombre, txtTelefono, txtCorreoElectronico;
     Button btnsave;
+
+    public ListaContactosAdapter listaContactos;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -36,6 +41,12 @@ public class NuevoActivity extends AppCompatActivity {
                 if (id > 0){
                     Toast.makeText(NuevoActivity.this,"REGISTRO GUARDADO", Toast.LENGTH_LONG).show();
                     limpiar();
+                    if (listaContactos != null) {
+                        String[] newArray = new String[]{"Nuevo valor 1", "Nuevo valor 2", "Nuevo valor 3"};
+                        //listaContactos.actualizarDatos(id);
+                        //listaContactos.notifyDataSetChanged();
+                    }
+                    finish();
                 }else {
                     Toast.makeText(NuevoActivity.this,"ERROR AL GUARDAR REGISTRO", Toast.LENGTH_LONG).show();
                 }

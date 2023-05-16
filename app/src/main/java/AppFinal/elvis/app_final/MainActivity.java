@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 import AppFinal.elvis.app_final.adaptadores.ListaContactosAdapter;
@@ -26,11 +28,13 @@ public class MainActivity extends AppCompatActivity {
     
     RecyclerView listaContactos;
     ArrayList<Contactos> listaArrayContactos;
+    FloatingActionButton fab;
 
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listaContactos = findViewById(R.id.listaContactos);
+        fab = findViewById(R.id.fab);
         listaContactos.setLayoutManager(new LinearLayoutManager(this));
 
         DbContactos dbContactos = new DbContactos(MainActivity.this);
@@ -38,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
 
         ListaContactosAdapter adapter = new ListaContactosAdapter(dbContactos.mostrarContactos());
         listaContactos.setAdapter(adapter);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nuevoRegistro();
+            }
+        });
     }
     public boolean onCreateOptionMenu (Menu menu){
         MenuInflater inflater = getMenuInflater();
@@ -54,8 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    private void nuevoRegistro(){
+    public void nuevoRegistro(){
         Intent intent = new Intent(this, NuevoActivity.class);
         startActivity(intent);
     }
+
 }
