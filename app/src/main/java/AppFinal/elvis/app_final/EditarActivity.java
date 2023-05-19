@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import AppFinal.elvis.app_final.db.DbContactos;
 import AppFinal.elvis.app_final.entidades.Contactos;
 
@@ -17,7 +19,7 @@ public class EditarActivity extends AppCompatActivity {
 
     EditText txtNombre, txtTelefono, txtCorreo;
     Button btnGuarda;
-
+    FloatingActionButton fabEditar, fabEliminar;
     boolean correcto = false;
 
     Contactos contacto;
@@ -32,6 +34,12 @@ public class EditarActivity extends AppCompatActivity {
         txtTelefono = findViewById(R.id.txtTelefono);
         txtCorreo = findViewById(R.id.txtCorreoElectronico);
         btnGuarda = findViewById(R.id.btnGuarda);
+        fabEditar = findViewById(R.id.fabEditar);
+        fabEliminar = findViewById(R.id.fabEliminar);
+
+        //esconder botones
+        fabEditar.setVisibility(View.INVISIBLE);
+        fabEliminar.setVisibility(View.INVISIBLE);
 
         if (savedInstanceState == null) {
 
@@ -69,7 +77,7 @@ public class EditarActivity extends AppCompatActivity {
                         Toast.makeText(EditarActivity.this, "ERROR AL MODIFICAR REGISTRO", Toast.LENGTH_LONG).show();
                     }
                 }else{
-                    Toast.makeText(EditarActivity.this, "DEBE LLENAR LOS CAMPOS OBLIGATORIOS", Toast.LENGTH_LONG).show();
+                    Toast.makeText(EditarActivity.this, "DEBE LLENAR TODOS LOS CAMPOS", Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -9,6 +9,7 @@
 
     <EditText
         android:id="@+id/txtNombre"
+        android:labelFor="@id/txtNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/hint_telefono"
+        android:labelFor="@string/hint_correo_electronico"
         android:inputType="phone"
         android:textColorHint="#CCC8C8"
         android:textSize="24sp" />
@@ -34,6 +36,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/hint_correo_electronico"
+        android:labelFor="@string/hint_correo_electronico"
         android:inputType="textEmailAddress"
         android:textColorHint="#CCC8C8"
         android:textSize="24sp" />

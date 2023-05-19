@@ -3,6 +3,7 @@ package AppFinal.elvis.app_final;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +19,6 @@ public class NuevoActivity extends AppCompatActivity {
 
     EditText txtNombre, txtTelefono, txtCorreoElectronico;
     Button btnsave;
-
-    public ListaContactosAdapter listaContactos;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -41,11 +40,7 @@ public class NuevoActivity extends AppCompatActivity {
                 if (id > 0){
                     Toast.makeText(NuevoActivity.this,"REGISTRO GUARDADO", Toast.LENGTH_LONG).show();
                     limpiar();
-                    if (listaContactos != null) {
-                        String[] newArray = new String[]{"Nuevo valor 1", "Nuevo valor 2", "Nuevo valor 3"};
-                        //listaContactos.actualizarDatos(id);
-                        //listaContactos.notifyDataSetChanged();
-                    }
+                    lista();
                     finish();
                 }else {
                     Toast.makeText(NuevoActivity.this,"ERROR AL GUARDAR REGISTRO", Toast.LENGTH_LONG).show();
@@ -53,6 +48,11 @@ public class NuevoActivity extends AppCompatActivity {
             }
         });
     }
+    private void lista(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
 
     private void limpiar(){
         txtNombre.setText("");

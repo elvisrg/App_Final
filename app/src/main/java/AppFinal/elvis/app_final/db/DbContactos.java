@@ -76,7 +76,7 @@ public class DbContactos extends DbHelper {
         Contactos contacto = null;
         Cursor cursorContactos;
 
-        cursorContactos = db.rawQuery("SELECT * FROM" + TABLE_CONTACTOS + "WHERE id = " + id + "LIMIT 1", null);
+        cursorContactos = db.rawQuery("SELECT * FROM " + TABLE_CONTACTOS + " WHERE id = " + id + " LIMIT 1", null);
 
         if (cursorContactos.moveToFirst()){
             contacto = new Contactos();
@@ -100,8 +100,27 @@ public class DbContactos extends DbHelper {
 
 
         try{
-            db.execSQL("UPDATE" + TABLE_CONTACTOS + "SET nombre = '"+ nombre +"', telefono = '"+ telefono +"', correo_electronico = '"+ correo_electronico +"' WHERE id = '"+ id +"' ");
+            db.execSQL("UPDATE " + TABLE_CONTACTOS + " SET nombre = '"+ nombre +"', telefono = '"+ telefono +"', correo_electronico = '"+ correo_electronico +"' WHERE id = '"+ id +"' ");
 
+            correcto = true;
+        }catch (Exception ex){
+            ex.toString();
+            correcto = false;
+        } finally {
+            db.close();
+        }
+
+        return correcto;
+    }
+
+    public boolean eliminarContacto(int id){
+
+        boolean correcto = false;
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        try{
+            db.execSQL("DELETE FROM " + TABLE_CONTACTOS + " WHERE id = '" + id + "'");
             correcto = true;
         }catch (Exception ex){
             ex.toString();

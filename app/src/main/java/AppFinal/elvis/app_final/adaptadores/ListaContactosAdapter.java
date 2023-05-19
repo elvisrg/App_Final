@@ -18,7 +18,7 @@ import AppFinal.elvis.app_final.entidades.Contactos;
 
 public class ListaContactosAdapter extends RecyclerView.Adapter<ListaContactosAdapter.ContactoViewHolder> {
 
-    ArrayList<Contactos>listaContactos;
+    ArrayList<Contactos> listaContactos;
     public ListaContactosAdapter(ArrayList<Contactos>listaContactos){
         this.listaContactos = listaContactos;
     }

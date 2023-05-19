@@ -65,9 +65,11 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    public void nuevoRegistro(){
+    private void nuevoRegistro(){
         Intent intent = new Intent(this, NuevoActivity.class);
         startActivity(intent);
     }
+
+
 
 }

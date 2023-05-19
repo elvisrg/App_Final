@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">App_Final</string>
+    <string name="app_name">Huellitas</string>
     <string name="CREAR">CREAR BASE</string>
     <string name="hint_nombre">Nombre:</string>
     <string name="hint_telefono">Telefono:</string>
