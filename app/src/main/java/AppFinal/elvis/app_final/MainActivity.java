@@ -28,13 +28,11 @@ public class MainActivity extends AppCompatActivity {
     
     RecyclerView listaContactos;
     ArrayList<Contactos> listaArrayContactos;
-    FloatingActionButton fab;
 
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listaContactos = findViewById(R.id.listaContactos);
-        fab = findViewById(R.id.fab);
         listaContactos.setLayoutManager(new LinearLayoutManager(this));
 
         DbContactos dbContactos = new DbContactos(MainActivity.this);
@@ -43,12 +41,6 @@ public class MainActivity extends AppCompatActivity {
         ListaContactosAdapter adapter = new ListaContactosAdapter(dbContactos.mostrarContactos());
         listaContactos.setAdapter(adapter);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nuevoRegistro();
-            }
-        });
     }
     public boolean onCreateOptionMenu (Menu menu){
         MenuInflater inflater = getMenuInflater();
@@ -57,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.menuNuevo:
+            case R.id.add_value:
                 nuevoRegistro();
                 return true;
 
@@ -70,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal, menu);
 
-
+        return super.onCreateOptionsMenu(menu);
+    }
 }
