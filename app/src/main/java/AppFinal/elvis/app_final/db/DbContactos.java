@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -33,9 +34,12 @@ public class DbContactos extends DbHelper {
             values.put("nombre", nombre);
             values.put("telefono", telefono);
             values.put("correo_electronico", correo_electronico);
-            values.put("masccota", mascota);
+            values.put("mascota", mascota);
             values.put("raza", raza);
             values.put("fecha", fecha);
+
+            Log.i("valor","valor" );
+            Log.i("value",correo_electronico );
 
             id = db.insert(TABLE_CONTACTOS, null, values);
         }catch (Exception ex){
