@@ -1,6 +1,8 @@
 package AppFinal.elvis.app_final;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,44 +15,33 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+
+import AppFinal.elvis.app_final.adaptadores.ListaContactosAdapter;
+import AppFinal.elvis.app_final.db.DbContactos;
 import AppFinal.elvis.app_final.db.DbHelper;
+import AppFinal.elvis.app_final.entidades.Contactos;
 
 public class MainActivity extends AppCompatActivity {
+    
+    RecyclerView listaContactos;
+    ArrayList<Contactos> listaArrayContactos;
 
-    Button btnCrear, ver;
-
-    @SuppressLint("MissingInflatedId")
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        listaContactos = findViewById(R.id.listaContactos);
+        listaContactos.setLayoutManager(new LinearLayoutManager(this));
 
-        btnCrear = findViewById(R.id.btnCrear);
-        ver = (Button) findViewById(R.id.ventana2);
+        DbContactos dbContactos = new DbContactos(MainActivity.this);
+        listaArrayContactos = new ArrayList<>();
 
-        ver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, NuevoActivity.class);
-                startActivity(i);
-            }
-        });
-
-        btnCrear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DbHelper bdHelper = new DbHelper(MainActivity.this);
-                SQLiteDatabase db = bdHelper.getWritableDatabase();
-                if (db != null){
-                    Toast.makeText(MainActivity.this, "BASE DE DATOS CREADA", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "ERROR AL CREAR BASE DE DATOS", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+        ListaContactosAdapter adapter = new ListaContactosAdapter(dbContactos.mostrarContactos());
+        listaContactos.setAdapter(adapter);
 
     }
-
     public boolean onCreateOptionMenu (Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_principal, menu);
@@ -58,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.menuNuevo:
+            case R.id.add_value:
                 nuevoRegistro();
                 return true;
 
@@ -66,9 +57,15 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
     private void nuevoRegistro(){
         Intent intent = new Intent(this, NuevoActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal, menu);
+
+        return super.onCreateOptionsMenu(menu);
     }
 }

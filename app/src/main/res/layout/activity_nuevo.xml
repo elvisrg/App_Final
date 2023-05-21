@@ -3,44 +3,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".NuevoActivity">
 
 
-    <EditText
-        android:id="@+id/txtNombre"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:hint="@string/hint_nombre"
-        android:inputType="textPersonName"
-        android:textColorHint="#CCC8C8"
-        android:textSize="24sp" />
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        app:endIconMode="clear_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            >
 
-    <EditText
-        android:id="@+id/txtTelefono"
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:hint="@string/hint_telefono"
-        android:inputType="phone"
-        android:textColorHint="#CCC8C8"
-        android:textSize="24sp" />
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        app:endIconMode="clear_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            >
 
-    <EditText
-        android:id="@+id/txtCorreoElectronico"
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:hint="@string/hint_correo_electronico"
-        android:inputType="textEmailAddress"
-        android:textColorHint="#CCC8C8"
-        android:textSize="24sp" />
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        app:endIconMode="clear_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtCorreoElectronico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            >
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnGuarda"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        app:icon="@drawable/icon_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/purple_700"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="20dp"
         android:text="@string/btn_guarda"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 </LinearLayout>
