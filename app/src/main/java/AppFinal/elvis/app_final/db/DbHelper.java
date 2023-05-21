@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class DbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NOMBRE = "agenda.db";
     public static final String TABLE_CONTACTOS= "t_mascota";
 
@@ -31,10 +31,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion < 3) {
-            // Agrega el nuevo campo a la tabla existente
             db.execSQL("DROP TABLE " + TABLE_CONTACTOS);;
-
-        }
     }
 }
