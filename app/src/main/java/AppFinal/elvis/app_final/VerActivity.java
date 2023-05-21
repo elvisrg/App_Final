@@ -10,6 +10,7 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -18,7 +19,7 @@ import AppFinal.elvis.app_final.entidades.Contactos;
 
 public class VerActivity extends AppCompatActivity {
 
-    EditText txtNombre, txtTelefono, txtCorreo;
+    TextView txtNombre, txtTelefono, txtCorreo;
     Button btnGuarda;
     FloatingActionButton fabEditar, fabEliminar;
 
@@ -98,10 +99,9 @@ public class VerActivity extends AppCompatActivity {
             }
         });
     }
-
-
     private void lista(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
 }
