@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.add_value:
                 nuevoRegistro();
                 return true;
-
             default:
                 return super.onOptionsItemSelected(item);
         }
