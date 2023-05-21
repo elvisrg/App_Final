@@ -57,6 +57,54 @@
         android:textColorHint="#CCC8C8"
         android:textSize="24sp" />
 
+    <TextView
+        android:id="@+id/viewMascota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hint_mascota" />
+
+    <EditText
+        android:id="@+id/txtMascota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:labelFor="@+id/viewMascota"
+        android:inputType="text"
+        android:textColorHint="#CCC8C8"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/viewRaza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hint_raza" />
+
+    <EditText
+        android:id="@+id/txtRaza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:labelFor="@+id/viewRaza"
+        android:inputType="text"
+        android:textColorHint="#CCC8C8"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/viewFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hint_fecha" />
+
+    <EditText
+        android:id="@+id/txtFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:labelFor="@+id/viewFecha"
+        android:inputType="text"
+        android:textColorHint="#CCC8C8"
+        android:textSize="24sp" />
+
     <Button
         android:id="@+id/btnGuarda"
         android:layout_width="match_parent"

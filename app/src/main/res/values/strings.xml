@@ -6,5 +6,8 @@
     <string name="hint_correo_electronico">Correo electronico:</string>
     <string name="btn_guarda">Agregar registro</string>
     <string name="menu_nuevo">Nuevo registro</string>
+    <string name="hint_mascota">Nombre de mascota</string>
+    <string name="hint_raza">Raza</string>
+    <string name="hint_fecha">Fecha de registro</string>
     <string name="title_main_list">Listado pacientes</string>
 </resources>

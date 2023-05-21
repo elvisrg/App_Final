@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class DbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NOMBRE = "agenda.db";
     public static final String TABLE_CONTACTOS= "t_contactos";
 
@@ -22,7 +22,11 @@ public class DbHelper extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nombre TEXT NOT NULL," +
                 "telefono TEXT NOT NULL," +
-                "correo_electronico TEXT)");
+                "correo_electronico TEXT," +
+                "mascota TEXT NOT NULL," +
+                "raza TEXT NOT NULL," +
+                "feha TEXT NOT NULL)");
+
 
     }
 

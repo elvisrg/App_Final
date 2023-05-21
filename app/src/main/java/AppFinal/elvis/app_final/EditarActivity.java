@@ -17,7 +17,7 @@ import AppFinal.elvis.app_final.entidades.Contactos;
 
 public class EditarActivity extends AppCompatActivity {
 
-    EditText txtNombre, txtTelefono, txtCorreo;
+    EditText txtNombre, txtTelefono, txtCorreo, txtMascota, txtRaza, txtFecha;
     Button btnGuarda;
     FloatingActionButton fabEditar, fabEliminar;
     boolean correcto = false;
@@ -33,6 +33,9 @@ public class EditarActivity extends AppCompatActivity {
         txtNombre = findViewById(R.id.txtNombre);
         txtTelefono = findViewById(R.id.txtTelefono);
         txtCorreo = findViewById(R.id.txtCorreoElectronico);
+        txtMascota = findViewById(R.id.txtMascota);
+        txtRaza = findViewById(R.id.txtRaza);
+        txtFecha = findViewById(R.id.txtFecha);
         btnGuarda = findViewById(R.id.btnGuarda);
         fabEditar = findViewById(R.id.fabEditar);
         fabEliminar = findViewById(R.id.fabEliminar);
@@ -62,13 +65,26 @@ public class EditarActivity extends AppCompatActivity {
             txtNombre.setText(contacto.getNombre());
             txtTelefono.setText(contacto.getTelefono());
             txtCorreo.setText(contacto.getCorreo_electronico());
+            txtMascota.setText(contacto.getMascota());
+            txtRaza.setText(contacto.getRaza());
+            txtFecha.setText(contacto.getFecha());
         }
 
         btnGuarda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!txtNombre.getText().toString().equals("") &&!txtTelefono.getText().toString().equals("") && !txtCorreo.getText().toString().equals("")){
-                    correcto =  dbContactos.editarContacto(id, txtNombre.getText().toString(), txtTelefono.getText().toString(), txtCorreo.getText().toString());
+                if (!txtNombre.getText().toString().equals("") &&!txtTelefono.getText().toString().equals("") &&
+                        !txtCorreo.getText().toString().equals("")
+                        && !txtMascota.getText().toString().equals("")
+                        && !txtRaza.getText().toString().equals("")
+                        && !txtFecha.getText().toString().equals("")){
+                    correcto =  dbContactos.editarContacto(id,
+                            txtNombre.getText().toString(),
+                            txtTelefono.getText().toString(),
+                            txtCorreo.getText().toString(),
+                            txtMascota.getText().toString(),
+                            txtRaza.getText().toString(),
+                            txtFecha.getText().toString());
 
                     if (correcto){
                         Toast.makeText(EditarActivity.this, "REGISTRO MODIFICADO", Toast.LENGTH_LONG).show();

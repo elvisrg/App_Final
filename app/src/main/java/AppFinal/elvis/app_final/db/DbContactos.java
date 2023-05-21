@@ -20,7 +20,8 @@ public class DbContactos extends DbHelper {
         this.context = context;
     }
 
-    public long insertaContacto(String nombre, String telefono, String correo_electronico){
+    public long insertaContacto(String nombre, String telefono, String correo_electronico,
+                                String mascota, String raza, String fecha){
 
         long id = 0;
 
@@ -32,6 +33,9 @@ public class DbContactos extends DbHelper {
             values.put("nombre", nombre);
             values.put("telefono", telefono);
             values.put("correo_electronico", correo_electronico);
+            values.put("masccota", mascota);
+            values.put("raza", raza);
+            values.put("fecha", fecha);
 
             id = db.insert(TABLE_CONTACTOS, null, values);
         }catch (Exception ex){
@@ -58,6 +62,9 @@ public class DbContactos extends DbHelper {
                 contacto.setNombre(cursorContactos.getString(1));
                 contacto.setTelefono(cursorContactos.getString(2));
                 contacto.setCorreo_electronico(cursorContactos.getString(3));
+                contacto.setMascota(cursorContactos.getString(4));
+                contacto.setRaza(cursorContactos.getString(5));
+                contacto.setFecha(cursorContactos.getString(6));
 
                 listaContactos.add(contacto);
             }while (cursorContactos.moveToNext());
@@ -84,6 +91,9 @@ public class DbContactos extends DbHelper {
             contacto.setNombre(cursorContactos.getString(1));
             contacto.setTelefono(cursorContactos.getString(2));
             contacto.setCorreo_electronico(cursorContactos.getString(3));
+            contacto.setMascota(cursorContactos.getString(4));
+            contacto.setRaza(cursorContactos.getString(5));
+            contacto.setFecha(cursorContactos.getString(6));
         }
         cursorContactos.close();
 
@@ -91,7 +101,8 @@ public class DbContactos extends DbHelper {
     }
 
 
-    public boolean editarContacto(int id, String nombre, String telefono, String correo_electronico){
+    public boolean editarContacto(int id, String nombre, String telefono, String correo_electronico,
+        String mascota, String raza, String fecha){
 
        boolean correcto = false;
 
@@ -100,7 +111,13 @@ public class DbContactos extends DbHelper {
 
 
         try{
-            db.execSQL("UPDATE " + TABLE_CONTACTOS + " SET nombre = '"+ nombre +"', telefono = '"+ telefono +"', correo_electronico = '"+ correo_electronico +"' WHERE id = '"+ id +"' ");
+            db.execSQL("UPDATE " + TABLE_CONTACTOS + " SET nombre = '"+ nombre +"', " +
+                    "telefono = '"+ telefono +"', " +
+                    "correo_electronico = '"+ correo_electronico +"', " +
+                    "mascota = '"+ mascota +"', " +
+                    "raza = '"+ raza +"', " +
+                    "fecha = '"+ fecha +"' " +
+                    "WHERE id = '"+ id +"' ");
 
             correcto = true;
         }catch (Exception ex){
